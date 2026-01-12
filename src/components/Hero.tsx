@@ -94,7 +94,7 @@ export function Hero() {
       {/* Somali Flag Background */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
-        style={{ backgroundImage: 'url(/src/assets/somalia-flag-hero.png)' }}
+        style={{ backgroundImage: 'url(/somalia-flag-hero.png)' }}
       />
       
       {/* Floating Stars */}
