@@ -1,6 +1,8 @@
 import { useLanguage } from '@/hooks/useLanguage';
 import { Star, Quote } from 'lucide-react';
 import { ScrollReveal } from '@/components/ScrollReveal';
+import { Parallax } from '@/components/Parallax';
+import { ScrollProgress } from '@/components/ScrollProgress';
 
 export function Leadership() {
   const { t } = useLanguage();
@@ -8,19 +10,27 @@ export function Leadership() {
   return (
     <section id="leadership" className="py-24 relative overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute top-20 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 left-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl" />
+      <Parallax
+        className="absolute top-20 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"
+        strengthPx={22}
+      />
+      <Parallax
+        className="absolute bottom-20 left-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl"
+        strengthPx={16}
+      />
       
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
-        <ScrollReveal as="div" className="text-center max-w-2xl mx-auto mb-16" variant="up">
-          <span className="inline-block px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-medium mb-4">
-            {t('leadershipTag')}
-          </span>
-          <h2 className="font-outfit text-4xl md:text-5xl font-bold text-secondary mb-4">
-            {t('leadershipTitle')}
-          </h2>
-        </ScrollReveal>
+        <ScrollProgress as="div" className="sp-stage">
+          <ScrollReveal as="div" className="text-center max-w-2xl mx-auto mb-16" variant="up">
+            <span className="inline-block px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-medium mb-4">
+              {t('leadershipTag')}
+            </span>
+            <h2 className="font-outfit text-4xl md:text-5xl font-bold text-secondary mb-4">
+              {t('leadershipTitle')}
+            </h2>
+          </ScrollReveal>
+        </ScrollProgress>
 
         {/* Main Leader Card */}
         <div className="max-w-4xl mx-auto">

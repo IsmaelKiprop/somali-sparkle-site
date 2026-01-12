@@ -2,6 +2,8 @@ import { Calendar, MapPin, Clock, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/hooks/useLanguage';
 import { ScrollReveal } from '@/components/ScrollReveal';
+import { Parallax } from '@/components/Parallax';
+import { ScrollProgress } from '@/components/ScrollProgress';
 
 const events = [
   {
@@ -44,35 +46,40 @@ export function Events() {
       <div className="absolute inset-0 bg-muted/80" />
       
       {/* Background decoration */}
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+      <Parallax
+        className="absolute bottom-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"
+        strengthPx={22}
+      />
       
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
-        <ScrollReveal as="div" className="text-center max-w-2xl mx-auto mb-16" variant="up">
-          <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
-            {language === 'so' ? 'Dhaqdhaqaaqa' : 'Campaign Events'}
-          </span>
-          <h2 className="font-outfit text-4xl md:text-5xl font-bold text-secondary mb-4">
-            {language === 'so' ? 'Ololaha Doorashada' : 'Election Campaign'}
-          </h2>
-          <p className="text-lg text-muted-foreground">
-            {language === 'so' 
-              ? 'Ku biir shirarkayaga iyo kulamayaga'
-              : 'Join our rallies and meetings'}
-          </p>
-        </ScrollReveal>
+        <ScrollProgress as="div" className="sp-stage">
+          <ScrollReveal as="div" className="text-center max-w-2xl mx-auto mb-16" variant="up">
+            <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
+              {language === 'so' ? 'Dhaqdhaqaaqa' : 'Campaign Events'}
+            </span>
+            <h2 className="font-outfit text-4xl md:text-5xl font-bold text-secondary mb-4">
+              {language === 'so' ? 'Ololaha Doorashada' : 'Election Campaign'}
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              {language === 'so' 
+                ? 'Ku biir shirarkayaga iyo kulamayaga'
+                : 'Join our rallies and meetings'}
+            </p>
+          </ScrollReveal>
+        </ScrollProgress>
 
         {/* Events Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
           {events.map((event, index) => (
-            <ScrollReveal
-              key={index}
-              as="div"
-              className="group bg-card rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-2"
-              variant="up"
-              delayMs={index * 90}
-              style={{ boxShadow: 'var(--card-shadow)' }}
-            >
+            <ScrollProgress key={index} as="div" className="sp-card" start={0.12} end={0.7}>
+              <ScrollReveal
+                as="div"
+                className="group bg-card rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-2"
+                variant="fade"
+                delayMs={index * 90}
+                style={{ boxShadow: 'var(--card-shadow)' }}
+              >
               {/* Date Header */}
               <div 
                 className={`p-6 text-center ${
@@ -117,7 +124,8 @@ export function Events() {
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </div>
-            </ScrollReveal>
+              </ScrollReveal>
+            </ScrollProgress>
           ))}
         </div>
       </div>

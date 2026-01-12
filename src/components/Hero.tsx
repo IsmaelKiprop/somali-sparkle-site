@@ -2,6 +2,7 @@ import { Star, ArrowRight, Eye } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { useEffect, useState, useRef } from 'react';
 import { ScrollReveal } from '@/components/ScrollReveal';
+import { Parallax } from '@/components/Parallax';
 
 function AnimatedCounter({ end, suffix = '', duration = 2000 }: { end: number; suffix?: string; duration?: number }) {
   const [count, setCount] = useState(0);
@@ -50,22 +51,56 @@ function AnimatedCounter({ end, suffix = '', duration = 2000 }: { end: number; s
 
 export function Hero() {
   const { t } = useLanguage();
+  const tiltRef = useRef<HTMLDivElement | null>(null);
+  const [tiltEnabled, setTiltEnabled] = useState(false);
+
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches ?? false;
+    const hasFinePointer = window.matchMedia?.('(hover: hover) and (pointer: fine)')?.matches ?? false;
+    setTiltEnabled(!prefersReducedMotion && hasFinePointer);
+  }, []);
+
+  const handleTiltMove = (e: React.PointerEvent) => {
+    if (!tiltEnabled) return;
+    const el = tiltRef.current;
+    if (!el) return;
+
+    const rect = el.getBoundingClientRect();
+    const px = (e.clientX - rect.left) / rect.width;
+    const py = (e.clientY - rect.top) / rect.height;
+
+    const maxDeg = 8;
+    const ry = (px - 0.5) * (maxDeg * 2);
+    const rx = (0.5 - py) * (maxDeg * 2);
+
+    el.style.setProperty('--rx', `${rx.toFixed(2)}deg`);
+    el.style.setProperty('--ry', `${ry.toFixed(2)}deg`);
+  };
+
+  const handleTiltLeave = () => {
+    const el = tiltRef.current;
+    if (!el) return;
+    el.style.setProperty('--rx', '0deg');
+    el.style.setProperty('--ry', '0deg');
+  };
 
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 bg-hero-pattern opacity-50" />
+      {/* Background */}
+      <div className="absolute inset-0 hero-stage" />
+      <div className="absolute inset-0 hero-stage-pattern opacity-30" />
+      <div className="absolute inset-0 hero-stage-vignette" />
       
       {/* Floating Stars */}
-      <div className="absolute top-32 right-[15%] floating-star opacity-20">
+      <Parallax className="absolute top-32 right-[15%] floating-star opacity-20" strengthPx={14}>
         <Star className="w-32 h-32 text-primary" />
-      </div>
-      <div className="absolute bottom-32 left-[10%] floating-star-delayed opacity-10">
+      </Parallax>
+      <Parallax className="absolute bottom-32 left-[10%] floating-star-delayed opacity-10" strengthPx={20}>
         <Star className="w-24 h-24 text-secondary" />
-      </div>
-      <div className="absolute top-1/2 right-[8%] floating-star opacity-15">
+      </Parallax>
+      <Parallax className="absolute top-1/2 right-[8%] floating-star opacity-15" strengthPx={10}>
         <div className="w-4 h-4 rounded-full bg-accent" />
-      </div>
+      </Parallax>
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -129,9 +164,14 @@ export function Hero() {
 
           {/* Right Content - Hero Image Card */}
           <ScrollReveal as="div" className="relative flex justify-center lg:justify-end" variant="scale" delayMs={120}>
-            <div className="relative w-full max-w-md">
+            <div
+              ref={tiltRef}
+              className="relative w-full max-w-md hero-tilt hero-avoid-select"
+              onPointerMove={handleTiltMove}
+              onPointerLeave={handleTiltLeave}
+            >
               {/* Glassmorphism Card */}
-              <div className="glass-card rounded-3xl p-6 space-y-4">
+              <div className="glass-card hero-tilt-card rounded-3xl p-6 space-y-4">
                 {/* Image Container */}
                 <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-gradient-to-br from-primary/20 to-secondary/30">
                   <img

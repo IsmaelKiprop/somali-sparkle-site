@@ -2,6 +2,8 @@ import { Flag, Users, Target, Shield } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 import somaliaFlag from '@/assets/somalia-flag-hero.png';
 import { ScrollReveal } from '@/components/ScrollReveal';
+import { Parallax } from '@/components/Parallax';
+import { ScrollProgress } from '@/components/ScrollProgress';
 
 const pillars = [
   {
@@ -30,7 +32,10 @@ export function About() {
   return (
     <section id="about" className="py-24 relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl" />
+      <Parallax
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl"
+        strengthPx={28}
+      />
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
@@ -51,7 +56,8 @@ export function About() {
           </ScrollReveal>
           
           {/* Content Side */}
-          <ScrollReveal as="div" className="order-1 lg:order-2 space-y-6" variant="left" delayMs={80}>
+          <ScrollProgress as="div" className="sp-stage">
+            <ScrollReveal as="div" className="order-1 lg:order-2 space-y-6" variant="left" delayMs={80}>
             <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">
               {t('aboutTag')}
             </span>
@@ -75,39 +81,36 @@ export function About() {
                 <p className="text-sm text-muted-foreground">United Nation</p>
               </div>
             </div>
-          </ScrollReveal>
+            </ScrollReveal>
+          </ScrollProgress>
         </div>
 
         {/* Pillars Grid */}
         <div className="grid md:grid-cols-3 gap-6">
           {pillars.map((pillar, index) => (
-            <ScrollReveal
-              key={pillar.titleKey}
-              as="div"
-              className="card-elevated p-8 group"
-              variant="up"
-              delayMs={index * 90}
-            >
-              <div 
-                className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110 ${
-                  pillar.color === 'primary' ? 'bg-primary/10' :
-                  pillar.color === 'accent' ? 'bg-accent/10' : 'bg-secondary/10'
-                }`}
-              >
-                <pillar.icon 
-                  className={`w-8 h-8 ${
-                    pillar.color === 'primary' ? 'text-primary' :
-                    pillar.color === 'accent' ? 'text-accent' : 'text-secondary'
-                  }`} 
-                />
-              </div>
-              <h3 className="text-xl font-bold text-foreground mb-3">
-                {t(pillar.titleKey)}
-              </h3>
-              <p className="text-muted-foreground">
-                {t(pillar.descKey)}
-              </p>
-            </ScrollReveal>
+            <ScrollProgress key={pillar.titleKey} as="div" className="sp-card">
+              <ScrollReveal as="div" className="card-elevated p-8 group" variant="fade" delayMs={index * 90}>
+                <div 
+                  className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110 ${
+                    pillar.color === 'primary' ? 'bg-primary/10' :
+                    pillar.color === 'accent' ? 'bg-accent/10' : 'bg-secondary/10'
+                  }`}
+                >
+                  <pillar.icon 
+                    className={`w-8 h-8 ${
+                      pillar.color === 'primary' ? 'text-primary' :
+                      pillar.color === 'accent' ? 'text-accent' : 'text-secondary'
+                    }`} 
+                  />
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-3">
+                  {t(pillar.titleKey)}
+                </h3>
+                <p className="text-muted-foreground">
+                  {t(pillar.descKey)}
+                </p>
+              </ScrollReveal>
+            </ScrollProgress>
           ))}
         </div>
       </div>

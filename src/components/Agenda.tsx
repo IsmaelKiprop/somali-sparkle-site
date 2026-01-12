@@ -5,6 +5,7 @@ import agendaHealth from '@/assets/agenda-health.jpg';
 import agendaEducation from '@/assets/agenda-education.jpg';
 import agendaAgriculture from '@/assets/agenda-agriculture.jpg';
 import { ScrollReveal } from '@/components/ScrollReveal';
+import { ScrollProgress } from '@/components/ScrollProgress';
 
 const agendaItems = [
   {
@@ -48,7 +49,8 @@ export function Agenda() {
     <section id="agenda" className="py-24 bg-secondary/5 relative">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <ScrollReveal as="div" className="text-center max-w-2xl mx-auto mb-16" variant="up">
+        <ScrollProgress as="div" className="sp-stage">
+          <ScrollReveal as="div" className="text-center max-w-2xl mx-auto mb-16" variant="up">
           <span className="inline-block px-4 py-2 bg-secondary/10 text-secondary rounded-full text-sm font-medium mb-4">
             {t('agendaTag')}
           </span>
@@ -58,24 +60,25 @@ export function Agenda() {
           <p className="text-lg text-muted-foreground">
             {t('agendaSubtitle')}
           </p>
-        </ScrollReveal>
+          </ScrollReveal>
+        </ScrollProgress>
 
         {/* Agenda Cards */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {agendaItems.map((item, index) => (
-            <ScrollReveal
-              key={item.titleKey}
-              as="div"
-              className="group relative bg-card rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
-              variant="up"
-              delayMs={index * 90}
-              durationMs={700}
-              threshold={0.15}
-              rootMargin="0px 0px -8% 0px"
-              style={{ 
-                boxShadow: '0 4px 20px hsl(210 50% 15% / 0.08)',
-              }}
-            >
+            <ScrollProgress key={item.titleKey} as="div" className="sp-card" start={0.12} end={0.7}>
+              <ScrollReveal
+                as="div"
+                className="group relative bg-card rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
+                variant="fade"
+                delayMs={index * 90}
+                durationMs={700}
+                threshold={0.15}
+                rootMargin="0px 0px -8% 0px"
+                style={{ 
+                  boxShadow: '0 4px 20px hsl(210 50% 15% / 0.08)',
+                }}
+              >
               {/* Background Image */}
               <div className="absolute inset-0">
                 <img 
@@ -116,6 +119,7 @@ export function Agenda() {
                 </div>
               </div>
             </ScrollReveal>
+            </ScrollProgress>
           ))}
         </div>
       </div>

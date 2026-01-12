@@ -38,7 +38,7 @@ export function Navbar() {
               <Link
                 key={item.key}
                 to={item.href}
-                className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors duration-200"
+                className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors duration-200 link-underline"
               >
                 {t(item.key)}
               </Link>
@@ -74,7 +74,7 @@ export function Navbar() {
             {/* Join Button */}
             <Link
               to="/register"
-              className="hidden sm:flex items-center gap-2 bg-secondary text-secondary-foreground px-5 py-2.5 rounded-xl font-semibold text-sm hover:bg-secondary/90 transition-all duration-200 hover:-translate-y-0.5"
+              className="hidden sm:flex btn-premium micro-press px-5 py-2.5 text-sm"
             >
               {t('navJoin')}
             </Link>
@@ -82,7 +82,7 @@ export function Navbar() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden p-2 rounded-lg hover:bg-muted transition-colors"
+              className="lg:hidden p-2 rounded-lg hover:bg-muted transition-colors micro-press"
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -106,7 +106,7 @@ export function Navbar() {
               <Link
                 to="/register"
                 onClick={() => setIsOpen(false)}
-                className="mx-4 mt-2 flex items-center justify-center gap-2 bg-secondary text-secondary-foreground px-5 py-3 rounded-xl font-semibold text-sm"
+                className="mx-4 mt-2 flex items-center justify-center btn-premium micro-press px-5 py-3 text-sm"
               >
                 {t('navJoin')}
               </Link>
