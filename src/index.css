@@ -369,9 +369,55 @@
 
   .sp-card {
     opacity: calc(0.7 + (var(--sp, 0) * 0.3));
-    transform: translate3d(0, calc((1 - var(--sp, 0)) * 10px), 0) scale(calc(0.992 + (var(--sp, 0) * 0.008)));
-    filter: blur(calc((1 - var(--sp, 0)) * 1px));
+    transform: translate3d(0, calc((1 - var(--sp, 0)) * 8px), 0) scale(calc(0.98 + (var(--sp, 0) * 0.02)));
+    filter: blur(calc((1 - var(--sp, 0)) * 0.8px));
     will-change: transform, opacity, filter;
+  }
+
+  /* Celebration animations */
+  .celebration-drop {
+    animation: celebrationDrop 4s ease-in-out infinite;
+    transform-origin: top center;
+  }
+
+  .celebration-star {
+    animation: celebrationStar 5s ease-in-out infinite;
+    transform-origin: top center;
+  }
+
+  @keyframes celebrationDrop {
+    0% {
+      transform: translateY(-100vh) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(120vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
+  @keyframes celebrationStar {
+    0% {
+      transform: translateY(-100vh) rotate(0deg) scale(0);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+      transform: translateY(-80vh) rotate(90deg) scale(1);
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(120vh) rotate(720deg) scale(0.5);
+      opacity: 0;
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {

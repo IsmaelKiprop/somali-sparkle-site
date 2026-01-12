@@ -91,9 +91,9 @@ export function Hero() {
       <div className="absolute inset-0 hero-stage-pattern opacity-30" />
       <div className="absolute inset-0 hero-stage-vignette" />
       
-      {/* Mobile-only Somali Flag Background */}
+      {/* Somali Flag Background */}
       <div 
-        className="absolute inset-0 md:hidden bg-cover bg-center bg-no-repeat opacity-20"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
         style={{ backgroundImage: 'url(/src/assets/somalia-flag-hero.png)' }}
       />
       
@@ -107,6 +107,37 @@ export function Hero() {
       <Parallax className="absolute top-1/2 right-[8%] floating-star opacity-15" strengthPx={10}>
         <div className="w-4 h-4 rounded-full bg-accent" />
       </Parallax>
+
+      {/* Celebration/Victory Dropping Elements */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {/* Confetti strips */}
+        <div className="celebration-drop absolute top-0 left-[10%] w-1 h-8 bg-gradient-to-b from-primary to-primary/60 rounded-full" style={{ animationDelay: '0.5s' }} />
+        <div className="celebration-drop absolute top-0 left-[20%] w-1 h-6 bg-gradient-to-b from-accent to-accent/60 rounded-full" style={{ animationDelay: '1.2s' }} />
+        <div className="celebration-drop absolute top-0 left-[30%] w-1 h-10 bg-gradient-to-b from-secondary to-secondary/60 rounded-full" style={{ animationDelay: '0.8s' }} />
+        <div className="celebration-drop absolute top-0 left-[40%] w-1 h-7 bg-gradient-to-b from-primary to-primary/60 rounded-full" style={{ animationDelay: '2.1s' }} />
+        <div className="celebration-drop absolute top-0 left-[50%] w-1 h-9 bg-gradient-to-b from-accent to-accent/60 rounded-full" style={{ animationDelay: '1.5s' }} />
+        <div className="celebration-drop absolute top-0 left-[60%] w-1 h-8 bg-gradient-to-b from-secondary to-secondary/60 rounded-full" style={{ animationDelay: '0.3s' }} />
+        <div className="celebration-drop absolute top-0 left-[70%] w-1 h-6 bg-gradient-to-b from-primary to-primary/60 rounded-full" style={{ animationDelay: '1.8s' }} />
+        <div className="celebration-drop absolute top-0 left-[80%] w-1 h-11 bg-gradient-to-b from-accent to-accent/60 rounded-full" style={{ animationDelay: '0.9s' }} />
+        <div className="celebration-drop absolute top-0 left-[90%] w-1 h-7 bg-gradient-to-b from-secondary to-secondary/60 rounded-full" style={{ animationDelay: '1.4s' }} />
+        
+        {/* Star confetti */}
+        <div className="celebration-star absolute top-0 left-[15%] text-primary/40" style={{ animationDelay: '0.2s' }}>
+          <Star className="w-4 h-4" fill="currentColor" />
+        </div>
+        <div className="celebration-star absolute top-0 left-[35%] text-accent/40" style={{ animationDelay: '1.1s' }}>
+          <Star className="w-3 h-3" fill="currentColor" />
+        </div>
+        <div className="celebration-star absolute top-0 left-[55%] text-secondary/40" style={{ animationDelay: '0.6s' }}>
+          <Star className="w-5 h-5" fill="currentColor" />
+        </div>
+        <div className="celebration-star absolute top-0 left-[75%] text-primary/40" style={{ animationDelay: '1.7s' }}>
+          <Star className="w-3 h-3" fill="currentColor" />
+        </div>
+        <div className="celebration-star absolute top-0 left-[85%] text-accent/40" style={{ animationDelay: '0.4s' }}>
+          <Star className="w-4 h-4" fill="currentColor" />
+        </div>
+      </div>
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
