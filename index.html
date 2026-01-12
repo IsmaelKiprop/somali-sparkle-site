@@ -42,8 +42,37 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Immediate scroll-to-top script -->
+    <script>
+      // Ensure page loads at top (hero section)
+      if (history.scrollRestoration) {
+        history.scrollRestoration = 'manual';
+      }
+      window.addEventListener('beforeunload', function() {
+        window.scrollTo(0, 0);
+      });
+      window.addEventListener('load', function() {
+        window.scrollTo(0, 0);
+        // Re-enable scrolling after app loads
+        setTimeout(function() {
+          document.body.classList.add('loaded');
+        }, 100);
+      });
+      // Also try immediately
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    </script>
 
     <style>
+      /* Force viewport to top on load */
+      html, body {
+        overflow: hidden;
+        height: 100%;
+        scroll-behavior: auto;
+      }
+      
       #initial-loader {
         position: fixed;
         inset: 0;
@@ -67,6 +96,12 @@
         to {
           transform: rotate(360deg);
         }
+      }
+      
+      /* Enable scrolling after app loads */
+      body.loaded {
+        overflow: auto;
+        height: auto;
       }
     </style>
   </head>

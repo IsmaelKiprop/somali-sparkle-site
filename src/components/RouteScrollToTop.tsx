@@ -21,11 +21,9 @@ const RouteScrollToTop = () => {
 
   // Initial load scroll-to-top
   useEffect(() => {
-    // Ensure we start at the top when the app loads
-    if (window.scrollY > 0) {
-      const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches ?? false;
-      window.scrollTo({ top: 0, left: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
-    }
+    // Always scroll to top when the app loads to ensure hero section is visible
+    const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches ?? false;
+    window.scrollTo({ top: 0, left: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
   }, []);
 
   return null;
