@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import RouteScrollToTop from "@/components/RouteScrollToTop";
+import { ScrollToTop } from "@/components/ScrollToTop";
 import RouteTransition from "@/components/RouteTransition";
 import Index from "./pages/Index.tsx";
 import Register from "./pages/Register.tsx";
@@ -34,6 +35,7 @@ const App = () => (
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </RouteTransition>
+        <ScrollToTop />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

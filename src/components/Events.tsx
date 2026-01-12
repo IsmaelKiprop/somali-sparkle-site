@@ -13,6 +13,7 @@ const events = [
     location: 'Konis Stadium',
     time: '15:00',
     color: 'primary',
+    image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=400&h=250&fit=crop&auto=format', // Political rally crowd
   },
   {
     date: { day: '30', month: { so: 'JAN', en: 'JAN' } },
@@ -21,6 +22,7 @@ const events = [
     location: 'Jubba Hotel',
     time: '09:00',
     color: 'accent',
+    image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&h=250&fit=crop&auto=format', // Youth conference
   },
   {
     date: { day: '05', month: { so: 'FEB', en: 'FEB' } },
@@ -29,6 +31,7 @@ const events = [
     location: 'Online Event',
     time: '14:00',
     color: 'secondary',
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400&h=250&fit=crop&auto=format', // Healthcare forum
   },
 ];
 
@@ -80,6 +83,16 @@ export function Events() {
                 delayMs={index * 90}
                 style={{ boxShadow: 'var(--card-shadow)' }}
               >
+                {/* Event Image */}
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={event.image}
+                    alt={language === 'so' ? event.titleSo : event.titleEn}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                </div>
+
               {/* Date Header */}
               <div 
                 className={`p-6 text-center ${
