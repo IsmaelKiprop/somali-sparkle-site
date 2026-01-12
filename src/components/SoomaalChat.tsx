@@ -3,6 +3,8 @@ import { MessageCircle, X, Send, Bot, User, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useLanguage } from '@/hooks/useLanguage';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 type Message = { role: 'user' | 'assistant'; content: string };
 
@@ -113,7 +115,7 @@ export function SoomaalChat() {
       {/* Chat Button */}
       <button
         onClick={() => setIsOpen(true)}
-        className={`fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full bg-gradient-to-br from-primary to-accent shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-primary/30 ${isOpen ? 'scale-0' : 'scale-100'}`}
+        className={`fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full bg-primary shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg hover:bg-primary/90 ${isOpen ? 'scale-0' : 'scale-100'}`}
         aria-label="Open chat"
       >
         <MessageCircle className="w-7 h-7 text-white" />
@@ -126,21 +128,21 @@ export function SoomaalChat() {
         style={{ maxHeight: 'calc(100vh - 6rem)' }}
       >
         {/* Header */}
-        <div className="bg-gradient-to-r from-primary to-accent p-4 flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
-            <Bot className="w-6 h-6 text-white" />
+        <div className="bg-primary p-4 flex items-center gap-3">
+          <div className="w-10 h-10 rounded-full bg-primary-foreground/20 flex items-center justify-center">
+            <Bot className="w-6 h-6 text-primary-foreground" />
           </div>
           <div className="flex-1">
-            <h3 className="font-bold text-white text-lg">Soomaal</h3>
-            <p className="text-white/80 text-xs">
+            <h3 className="font-bold text-primary-foreground text-lg">Soomaal</h3>
+            <p className="text-primary-foreground/80 text-xs">
               {language === 'so' ? 'Caawiye AI-ga Xisbiga' : 'SYP AI Assistant'}
             </p>
           </div>
           <button
             onClick={() => setIsOpen(false)}
-            className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
+            className="w-8 h-8 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-primary-foreground/20 transition-colors"
           >
-            <X className="w-5 h-5 text-white" />
+            <X className="w-5 h-5 text-primary-foreground" />
           </button>
         </div>
 
@@ -148,7 +150,7 @@ export function SoomaalChat() {
         <div className="h-80 overflow-y-auto p-4 space-y-4 bg-muted/30">
           {messages.length === 0 && (
             <div className="text-center py-8">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
                 <Bot className="w-8 h-8 text-primary" />
               </div>
               <h4 className="font-semibold text-foreground mb-2">
@@ -167,19 +169,27 @@ export function SoomaalChat() {
               key={i}
               className={`flex gap-3 ${msg.role === 'user' ? 'flex-row-reverse' : ''}`}
             >
-              <div className={`w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center ${msg.role === 'user' ? 'bg-secondary text-secondary-foreground' : 'bg-gradient-to-br from-primary to-accent text-white'}`}>
+              <div className={`w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center ${msg.role === 'user' ? 'bg-secondary text-secondary-foreground' : 'bg-primary text-primary-foreground'}`}>
                 {msg.role === 'user' ? <User className="w-4 h-4" /> : <Bot className="w-4 h-4" />}
               </div>
               <div className={`max-w-[75%] rounded-2xl px-4 py-2 ${msg.role === 'user' ? 'bg-secondary text-secondary-foreground rounded-tr-sm' : 'bg-card border border-border rounded-tl-sm'}`}>
-                <p className="text-sm whitespace-pre-wrap">{msg.content}</p>
+                {msg.role === 'user' ? (
+                  <p className="text-sm whitespace-pre-wrap">{msg.content}</p>
+                ) : (
+                  <div className="prose prose-sm max-w-none prose-headings:text-foreground prose-headings:font-semibold prose-p:text-foreground prose-p:mb-3 prose-li:text-foreground prose-li:my-1 prose-code:text-foreground prose-code:bg-muted prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-pre:bg-muted prose-pre:border prose-pre:mb-4 prose-blockquote:border-l-primary prose-blockquote:text-muted-foreground prose-blockquote:my-4 prose-blockquote:pl-4 prose-ul:my-3 prose-ol:my-3 prose-hr:my-4">
+                    <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                      {msg.content}
+                    </ReactMarkdown>
+                  </div>
+                )}
               </div>
             </div>
           ))}
           
           {isLoading && messages[messages.length - 1]?.role === 'user' && (
             <div className="flex gap-3">
-              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                <Loader2 className="w-4 h-4 text-white animate-spin" />
+              <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                <Loader2 className="w-4 h-4 text-primary-foreground animate-spin" />
               </div>
               <div className="bg-card border border-border rounded-2xl rounded-tl-sm px-4 py-2">
                 <div className="flex gap-1">
@@ -208,7 +218,7 @@ export function SoomaalChat() {
               type="submit" 
               size="icon"
               disabled={isLoading || !input.trim()}
-              className="bg-gradient-to-r from-primary to-accent hover:opacity-90"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground"
             >
               <Send className="w-4 h-4" />
             </Button>

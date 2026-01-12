@@ -1,4 +1,4 @@
-import { Star, Facebook, Twitter, Instagram, Youtube, Mail, Phone, MapPin } from 'lucide-react';
+import { Star, Facebook, Twitter, Instagram, Youtube, Mail, Phone, MapPin, PhoneCall } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 
 export function Footer() {
@@ -9,6 +9,7 @@ export function Footer() {
     { icon: Twitter, href: '#' },
     { icon: Instagram, href: '#' },
     { icon: Youtube, href: '#' },
+    { icon: PhoneCall, href: '#' },
   ];
 
   const quickLinks = [
@@ -85,7 +86,7 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-3 text-sm text-secondary-foreground/70">
                 <Phone className="w-5 h-5 text-primary" />
-                +252 XXX XXX XXX
+                +252 61 444 555
               </li>
               <li className="flex items-start gap-3 text-sm text-secondary-foreground/70">
                 <MapPin className="w-5 h-5 text-primary flex-shrink-0" />

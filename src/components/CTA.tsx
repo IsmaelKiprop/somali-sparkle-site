@@ -1,4 +1,5 @@
 import { ArrowRight, Star, Sparkles } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '@/hooks/useLanguage';
 
 export function CTA() {
@@ -36,15 +37,13 @@ export function CTA() {
           </h2>
 
           {/* CTA Button */}
-          <a
-            href="https://somaliyouthparty.com/join"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to="/register"
             className="inline-flex items-center gap-3 bg-card text-secondary font-bold px-10 py-5 rounded-2xl text-lg hover:bg-card/90 transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-xl group"
           >
             {t('ctaButton')}
             <ArrowRight className="w-6 h-6 transition-transform group-hover:translate-x-1" />
-          </a>
+          </Link>
 
           {/* Bottom Text */}
           <p className="mt-8 text-primary-foreground/60 text-sm">
