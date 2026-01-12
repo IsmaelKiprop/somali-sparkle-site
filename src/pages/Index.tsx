@@ -7,7 +7,7 @@ import { Events } from '@/components/Events';
 import { Leadership } from '@/components/Leadership';
 import { CTA } from '@/components/CTA';
 import { Footer } from '@/components/Footer';
-
+import { SoomaalChat } from '@/components/SoomaalChat';
 const Index = () => {
   return (
     <LanguageProvider>
@@ -22,6 +22,7 @@ const Index = () => {
           <CTA />
         </main>
         <Footer />
+        <SoomaalChat />
       </div>
     </LanguageProvider>
   );
