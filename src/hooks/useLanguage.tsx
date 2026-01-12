@@ -88,6 +88,9 @@ export const translations: Translations = {
   // Footer
   footerRights: { so: 'Xuquuqda oo dhan way Keydsan yihiin', en: 'All Rights Reserved' },
   footerTagline: { so: 'Xisbiga Dhallinyarada Soomaaliyeed', en: 'Somali Youth Party' },
+  
+  // Language
+  language: { so: 'Af-Soomaali', en: 'English' },
 };
 
 interface LanguageContextType {
