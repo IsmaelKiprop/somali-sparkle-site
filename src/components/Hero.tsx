@@ -91,6 +91,12 @@ export function Hero() {
       <div className="absolute inset-0 hero-stage-pattern opacity-30" />
       <div className="absolute inset-0 hero-stage-vignette" />
       
+      {/* Mobile-only Somali Flag Background */}
+      <div 
+        className="absolute inset-0 md:hidden bg-cover bg-center bg-no-repeat opacity-20"
+        style={{ backgroundImage: 'url(/src/assets/somalia-flag-hero.png)' }}
+      />
+      
       {/* Floating Stars */}
       <Parallax className="absolute top-32 right-[15%] floating-star opacity-20" strengthPx={14}>
         <Star className="w-32 h-32 text-primary" />
