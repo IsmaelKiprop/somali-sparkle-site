@@ -103,7 +103,10 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   const t = (key: string): string => {
     const translation = translations[key];
-    if (!translation) return key;
+    if (!translation || !translation[language]) {
+      console.warn(`Translation missing for key: ${key} in language: ${language}`);
+      return key; // Return the key as fallback
+    }
     return translation[language];
   };
 

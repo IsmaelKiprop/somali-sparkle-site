@@ -16,7 +16,13 @@ const RouteScrollToTop = () => {
       }
     }
 
-    window.scrollTo({ top: 0, left: 0, behavior });
+    // Safe scroll with null checks
+    try {
+      window.scrollTo({ top: 0, left: 0, behavior });
+    } catch (error) {
+      // Fallback for older browsers
+      window.scrollTo(0, 0);
+    }
   }, [pathname, search, hash]);
 
   // Initial load scroll-to-top
