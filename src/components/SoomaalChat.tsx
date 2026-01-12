@@ -116,18 +116,18 @@ export function SoomaalChat() {
       {/* Chat Button */}
       <button
         onClick={() => setIsOpen(true)}
-        className={`fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full bg-gradient-to-r from-primary to-secondary shadow-2xl flex items-center justify-center transition-all duration-500 hover:scale-110 hover:shadow-3xl hover:shadow-primary/25 group ${isOpen ? 'scale-0 rotate-12 opacity-0' : 'scale-100 rotate-0 opacity-100'}`}
+        className={`fixed bottom-4 right-4 z-50 w-14 h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-r from-primary to-secondary shadow-2xl flex items-center justify-center transition-all duration-500 hover:scale-110 hover:shadow-3xl hover:shadow-primary/25 group ${isOpen ? 'scale-0 rotate-12 opacity-0' : 'scale-100 rotate-0 opacity-100'}`}
         aria-label="Open chat"
       >
-        <MessageCircle className="w-7 h-7 text-white transition-transform duration-300 group-hover:scale-110" />
-        <span className="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-r from-green-400 to-green-500 rounded-full border-2 border-white animate-pulse shadow-lg" />
+        <MessageCircle className="w-5 h-5 md:w-7 md:h-7 text-white transition-transform duration-300 group-hover:scale-110" />
+        <span className="absolute -top-1 -right-1 w-3 h-3 md:w-4 md:h-4 bg-gradient-to-r from-green-400 to-green-500 rounded-full border-2 border-white animate-pulse shadow-lg" />
         <div className="absolute inset-0 rounded-full bg-white/20 animate-ping" />
       </button>
 
       {/* Chat Window */}
       <div
-        className={`fixed bottom-6 right-6 z-50 w-[400px] max-w-[calc(100vw-2rem)] bg-gradient-to-br from-card to-background rounded-2xl shadow-2xl border border-border/50 overflow-hidden backdrop-blur-xl transition-all duration-500 ${isOpen ? 'scale-100 opacity-100 translate-y-0' : 'scale-95 opacity-0 translate-y-4 pointer-events-none'}`}
-        style={{ maxHeight: 'calc(100vh - 6rem)' }}
+        className={`fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 w-[calc(100vw-2rem)] md:w-[400px] max-w-[400px] bg-gradient-to-br from-card to-background rounded-2xl shadow-2xl border border-border/50 overflow-hidden backdrop-blur-xl transition-all duration-500 ${isOpen ? 'scale-100 opacity-100 translate-y-0' : 'scale-95 opacity-0 translate-y-4 pointer-events-none'}`}
+        style={{ maxHeight: 'calc(100vh - 5rem)' }}
       >
         {/* Header */}
         <div className="bg-gradient-to-r from-primary to-secondary p-4 flex items-center gap-3 relative overflow-hidden">
@@ -154,23 +154,23 @@ export function SoomaalChat() {
         </div>
 
         {/* Messages */}
-        <div className="h-80 overflow-y-auto p-4 space-y-4 bg-gradient-to-b from-muted/20 to-muted/10">
+        <div className="h-64 md:h-80 overflow-y-auto p-3 md:p-4 space-y-3 md:space-y-4 bg-gradient-to-b from-muted/20 to-muted/10">
           {messages.length === 0 && (
-            <div className="text-center py-8 animate-fade-in">
-              <div className="w-20 h-20 rounded-full bg-gradient-to-r from-primary/20 to-secondary/20 flex items-center justify-center mx-auto mb-4 ring-4 ring-primary/10 animate-pulse">
-                <Bot className="w-10 h-10 text-primary animate-bounce" />
+            <div className="text-center py-6 md:py-8 animate-fade-in h-full flex flex-col justify-center">
+              <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-r from-primary/20 to-secondary/20 flex items-center justify-center mx-auto mb-3 md:mb-4 ring-4 ring-primary/10 animate-pulse">
+                <Bot className="w-8 h-8 md:w-10 md:h-10 text-primary animate-bounce" />
               </div>
-              <h4 className="font-semibold text-foreground mb-2 text-lg">
+              <h4 className="font-semibold text-foreground mb-2 text-base md:text-lg">
                 {language === 'so' ? 'Soo dhawoow!' : 'Welcome!'}
               </h4>
-              <p className="text-sm text-muted-foreground max-w-[250px] mx-auto">
+              <p className="text-sm text-muted-foreground max-w-[200px] md:max-w-[250px] mx-auto">
                 {language === 'so' 
                   ? 'Waxaan ahay Soomaal, caawiyaha AI-ga xisbiga. Wax ii weydii!'
                   : "I'm Soomaal, party's AI assistant. Ask me anything!"}
               </p>
-              <div className="flex gap-2 justify-center mt-4">
-                <span className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">{language === 'so' ? 'Soomaali' : 'Somali'}</span>
-                <span className="px-3 py-1 bg-secondary/10 text-secondary text-xs rounded-full">{language === 'so' ? 'English' : 'English'}</span>
+              <div className="flex gap-2 justify-center mt-3 md:mt-4">
+                <span className="px-2 py-1 md:px-3 md:py-1 bg-primary/10 text-primary text-xs rounded-full">{language === 'so' ? 'Soomaali' : 'Somali'}</span>
+                <span className="px-2 py-1 md:px-3 md:py-1 bg-secondary/10 text-secondary text-xs rounded-full">{language === 'so' ? 'English' : 'English'}</span>
               </div>
             </div>
           )}
