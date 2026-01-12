@@ -13,7 +13,7 @@ const events = [
     location: 'Konis Stadium',
     time: '15:00',
     color: 'primary',
-    image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=400&h=250&fit=crop&auto=format', // Political rally crowd
+    image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=400&h=250&fit=crop&auto=format', // Political rally with Somali crowd
   },
   {
     date: { day: '30', month: { so: 'JAN', en: 'JAN' } },
@@ -22,7 +22,7 @@ const events = [
     location: 'Jubba Hotel',
     time: '09:00',
     color: 'accent',
-    image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&h=250&fit=crop&auto=format', // Youth conference
+    image: 'https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=400&h=250&fit=crop&auto=format', // Youth political meeting
   },
   {
     date: { day: '05', month: { so: 'FEB', en: 'FEB' } },
@@ -31,7 +31,7 @@ const events = [
     location: 'Online Event',
     time: '14:00',
     color: 'secondary',
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400&h=250&fit=crop&auto=format', // Healthcare forum
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400&h=250&fit=crop&auto=format', // Healthcare policy discussion
   },
 ];
 

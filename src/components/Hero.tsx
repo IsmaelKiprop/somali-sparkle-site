@@ -212,7 +212,7 @@ export function Hero() {
                 {/* Image Container */}
                 <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-gradient-to-br from-primary/20 to-secondary/30">
                   <img
-                    src="https://somaliyouthparty.com/wp-content/uploads/2025/12/cropped-20251120_134403.png"
+                    src="/favicon.png"
                     alt="Nasa Ige - Presidential Candidate"
                     className="w-full h-full object-cover object-top"
                   />
