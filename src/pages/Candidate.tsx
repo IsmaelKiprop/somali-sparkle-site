@@ -4,6 +4,7 @@ import { Footer } from '@/components/Footer';
 import { SoomaalChat } from '@/components/SoomaalChat';
 import { useLanguage } from '@/hooks/useLanguage';
 import { Star, Quote, Calendar, MapPin } from 'lucide-react';
+import { ScrollReveal } from '@/components/ScrollReveal';
 
 const CandidateContent = () => {
   const { language } = useLanguage();
@@ -14,21 +15,21 @@ const CandidateContent = () => {
       <section className="py-24 bg-gradient-to-br from-primary/10 to-secondary/10">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="mb-8 inline-flex items-center gap-2 bg-primary/20 px-4 py-2 rounded-full">
+            <ScrollReveal as="div" className="mb-8 inline-flex items-center gap-2 bg-primary/20 px-4 py-2 rounded-full" variant="up">
               <Star className="w-5 h-5 text-primary" />
               <span className="text-primary font-semibold">
                 {language === 'so' ? 'Musharraxa Madaxweynaha' : 'Presidential Candidate'}
               </span>
-            </div>
-            <h1 className="font-outfit text-5xl md:text-6xl font-bold text-secondary mb-6">
+            </ScrollReveal>
+            <ScrollReveal as="h1" className="font-outfit text-5xl md:text-6xl font-bold text-secondary mb-6" variant="up" delayMs={80}>
               Nasa Ige
-            </h1>
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+            </ScrollReveal>
+            <ScrollReveal as="p" className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto" variant="up" delayMs={140}>
               {language === 'so' 
                 ? 'Hoggaamiye leh aragti fog iyo waayo-aragnimo 20 sano ka badan.'
                 : 'A leader with far-reaching vision and over 20 years of experience.'
               }
-            </p>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -37,14 +38,14 @@ const CandidateContent = () => {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
+            <ScrollReveal as="div" variant="right">
               <img 
                 src="/favicon.png" 
                 alt="Nasa Ige"
                 className="w-full rounded-2xl shadow-2xl"
               />
-            </div>
-            <div className="space-y-6">
+            </ScrollReveal>
+            <ScrollReveal as="div" className="space-y-6" variant="left" delayMs={80}>
               <h2 className="font-outfit text-3xl font-bold text-secondary">
                 {language === 'so' ? 'Hoggaamiye Wanaagsan' : 'Visionary Leader'}
               </h2>
@@ -82,7 +83,7 @@ const CandidateContent = () => {
                   : 'Nasa Ige is a well-known leader in Somalia, having previously worked in various government agencies and private companies. He supports youth development and building a transparent government.'
                 }
               </p>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -91,11 +92,11 @@ const CandidateContent = () => {
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="font-outfit text-3xl font-bold text-secondary mb-8">
+            <ScrollReveal as="h2" className="font-outfit text-3xl font-bold text-secondary mb-8" variant="up">
               {language === 'so' ? 'Aragtiyada Nasa Ige' : 'Nasa Ige\'s Vision'}
-            </h2>
+            </ScrollReveal>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="text-center">
+              <ScrollReveal as="div" className="text-center" variant="up" delayMs={0}>
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Star className="w-8 h-8 text-primary" />
                 </div>
@@ -108,8 +109,8 @@ const CandidateContent = () => {
                     : 'Strengthen peace throughout the country'
                   }
                 </p>
-              </div>
-              <div className="text-center">
+              </ScrollReveal>
+              <ScrollReveal as="div" className="text-center" variant="up" delayMs={90}>
                 <div className="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Star className="w-8 h-8 text-secondary" />
                 </div>
@@ -122,8 +123,8 @@ const CandidateContent = () => {
                     : 'Economic and social progress'
                   }
                 </p>
-              </div>
-              <div className="text-center">
+              </ScrollReveal>
+              <ScrollReveal as="div" className="text-center" variant="up" delayMs={180}>
                 <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Star className="w-8 h-8 text-accent" />
                 </div>
@@ -136,7 +137,7 @@ const CandidateContent = () => {
                     : 'Empowering youth for the future'
                   }
                 </p>
-              </div>
+              </ScrollReveal>
             </div>
           </div>
         </div>

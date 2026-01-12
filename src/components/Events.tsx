@@ -1,6 +1,7 @@
 import { Calendar, MapPin, Clock, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/hooks/useLanguage';
+import { ScrollReveal } from '@/components/ScrollReveal';
 
 const events = [
   {
@@ -47,7 +48,7 @@ export function Events() {
       
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <ScrollReveal as="div" className="text-center max-w-2xl mx-auto mb-16" variant="up">
           <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
             {language === 'so' ? 'Dhaqdhaqaaqa' : 'Campaign Events'}
           </span>
@@ -59,14 +60,17 @@ export function Events() {
               ? 'Ku biir shirarkayaga iyo kulamayaga'
               : 'Join our rallies and meetings'}
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* Events Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
           {events.map((event, index) => (
-            <div
+            <ScrollReveal
               key={index}
+              as="div"
               className="group bg-card rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-2"
+              variant="up"
+              delayMs={index * 90}
               style={{ boxShadow: 'var(--card-shadow)' }}
             >
               {/* Date Header */}
@@ -113,7 +117,7 @@ export function Events() {
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>

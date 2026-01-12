@@ -10,6 +10,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Checkbox } from '@/components/ui/checkbox';
 import { User, Mail, Phone, MapPin, Calendar, Shield, CheckCircle } from 'lucide-react';
+import { ScrollReveal } from '@/components/ScrollReveal';
 
 const Register = () => {
   return (
@@ -66,23 +67,25 @@ const RegisterContent = () => {
         <main className="py-24">
           <div className="container mx-auto px-4">
             <div className="max-w-2xl mx-auto text-center">
-              <div className="mb-8 flex justify-center">
+              <ScrollReveal as="div" className="mb-8 flex justify-center" variant="scale">
                 <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center">
                   <CheckCircle className="w-10 h-10 text-green-600" />
                 </div>
-              </div>
-              <h1 className="text-4xl font-bold text-secondary mb-4">
+              </ScrollReveal>
+              <ScrollReveal as="h1" className="text-4xl font-bold text-secondary mb-4" variant="up" delayMs={80}>
                 {language === 'so' ? 'Waad ku mahadsan tahay isdiiwaangelinta!' : 'Thank you for registering!'}
-              </h1>
-              <p className="text-lg text-muted-foreground mb-8">
+              </ScrollReveal>
+              <ScrollReveal as="p" className="text-lg text-muted-foreground mb-8" variant="up" delayMs={140}>
                 {language === 'so' 
                   ? 'Waxaan ku soo dhaweynayaa xisbiga Somali Youth Party. Waxaan ku soo diri doonaa warar xoga ah iyo wixii ku saabsan barnaamijyada.'
                   : 'Welcome to the Somali Youth Party. We will send you updates and information about our programs.'
                 }
-              </p>
-              <Button onClick={() => window.location.href = '/'} className="bg-primary hover:bg-primary/90">
-                {language === 'so' ? 'Ka Noqo Boga Hore' : 'Return to Home'}
-              </Button>
+              </ScrollReveal>
+              <ScrollReveal as="div" variant="up" delayMs={200}>
+                <Button onClick={() => window.location.href = '/'} className="bg-primary hover:bg-primary/90">
+                  {language === 'so' ? 'Ka Noqo Boga Hore' : 'Return to Home'}
+                </Button>
+              </ScrollReveal>
             </div>
           </div>
         </main>
@@ -107,23 +110,23 @@ const RegisterContent = () => {
           <div className="max-w-4xl mx-auto">
             {/* Header */}
             <div className="text-center mb-12">
-              <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
+              <ScrollReveal as="span" className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4" variant="up">
                 {language === 'so' ? 'Ku Biir Xisbiga' : 'Join the Party'}
-              </span>
-              <h1 className="font-outfit text-4xl md:text-5xl font-bold text-secondary mb-4">
+              </ScrollReveal>
+              <ScrollReveal as="h1" className="font-outfit text-4xl md:text-5xl font-bold text-secondary mb-4" variant="up" delayMs={80}>
                 {language === 'so' ? 'Isdiiwaangeli Xubinno' : 'Member Registration'}
-              </h1>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              </ScrollReveal>
+              <ScrollReveal as="p" className="text-lg text-muted-foreground max-w-2xl mx-auto" variant="up" delayMs={140}>
                 {language === 'so' 
                   ? 'Ku biir tallaabadayada si aad u noqoto mid ka mid ah xubnaha ugu firfircoon ee xisbiga Somali Youth Party.'
                   : 'Join our movement to become one of the most active members of the Somali Youth Party.'
                 }
-              </p>
+              </ScrollReveal>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-8">
               {/* Personal Information */}
-              <Card>
+              <ScrollReveal as={Card} variant="up">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <User className="w-5 h-5 text-primary" />
@@ -200,10 +203,10 @@ const RegisterContent = () => {
                       />
                     </div>
                   </CardContent>
-                </Card>
+              </ScrollReveal>
 
                 {/* Location Information */}
-                <Card>
+                <ScrollReveal as={Card} variant="up" delayMs={80}>
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                       <MapPin className="w-5 h-5 text-primary" />
@@ -240,10 +243,10 @@ const RegisterContent = () => {
                       </div>
                     </div>
                   </CardContent>
-                </Card>
+                </ScrollReveal>
 
                 {/* Professional Information */}
-                <Card>
+                <ScrollReveal as={Card} variant="up" delayMs={140}>
                   <CardHeader>
                     <CardTitle>{language === 'so' ? 'Macluumaadka Shaqada' : 'Professional Information'}</CardTitle>
                   </CardHeader>
@@ -275,10 +278,10 @@ const RegisterContent = () => {
                       </div>
                     </div>
                   </CardContent>
-                </Card>
+                </ScrollReveal>
 
                 {/* Party Involvement */}
-                <Card>
+                <ScrollReveal as={Card} variant="up" delayMs={200}>
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                       <Shield className="w-5 h-5 text-primary" />
@@ -331,10 +334,10 @@ const RegisterContent = () => {
                       </div>
                     </div>
                   </CardContent>
-                </Card>
+                </ScrollReveal>
 
                 {/* Terms and Conditions */}
-                <Card>
+                <ScrollReveal as={Card} variant="up" delayMs={260}>
                   <CardContent className="pt-6">
                     <div className="flex items-center space-x-2">
                       <Checkbox
@@ -350,10 +353,10 @@ const RegisterContent = () => {
                       </Label>
                     </div>
                   </CardContent>
-                </Card>
+                </ScrollReveal>
 
                 {/* Submit Button */}
-                <div className="text-center">
+                <ScrollReveal as="div" className="text-center" variant="up" delayMs={320}>
                   <Button
                     type="submit"
                     disabled={isSubmitting}
@@ -364,7 +367,7 @@ const RegisterContent = () => {
                       : (language === 'so' ? 'Isdiiwaangeli Hadda' : 'Register Now')
                     }
                   </Button>
-                </div>
+                </ScrollReveal>
               </form>
             </div>
           </div>

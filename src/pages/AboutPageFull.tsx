@@ -4,6 +4,7 @@ import { Footer } from '@/components/Footer';
 import { SoomaalChat } from '@/components/SoomaalChat';
 import { useLanguage } from '@/hooks/useLanguage';
 import { Star, Users, Target, Heart } from 'lucide-react';
+import { ScrollReveal } from '@/components/ScrollReveal';
 
 const AboutContent = () => {
   const { language } = useLanguage();
@@ -32,13 +33,13 @@ const AboutContent = () => {
       <section className="py-24 bg-gradient-to-br from-primary/10 to-secondary/10">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="mb-8 inline-flex items-center gap-2 bg-primary/20 px-4 py-2 rounded-full">
+            <ScrollReveal as="div" className="mb-8 inline-flex items-center gap-2 bg-primary/20 px-4 py-2 rounded-full" variant="up">
               <Star className="w-5 h-5 text-primary" />
               <span className="text-primary font-semibold">
                 {language === 'so' ? 'Naguka Saabsan' : 'About Us'}
               </span>
-            </div>
-            <div className="mb-8 flex justify-center">
+            </ScrollReveal>
+            <ScrollReveal as="div" className="mb-8 flex justify-center" variant="scale" delayMs={60}>
               <div className="w-28 h-28 md:w-36 md:h-36 rounded-3xl bg-card/70 backdrop-blur border border-border/60 shadow-lg flex items-center justify-center p-4">
                 <img
                   src="/favicon.png"
@@ -47,16 +48,16 @@ const AboutContent = () => {
                   loading="lazy"
                 />
               </div>
-            </div>
-            <h1 className="font-outfit text-5xl md:text-6xl font-bold text-secondary mb-6">
+            </ScrollReveal>
+            <ScrollReveal as="h1" className="font-outfit text-5xl md:text-6xl font-bold text-secondary mb-6" variant="up" delayMs={100}>
               {language === 'so' ? 'Xisbiga Dhallinyarada Soomaaliyeed' : 'Somali Youth Party'}
-            </h1>
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+            </ScrollReveal>
+            <ScrollReveal as="p" className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto" variant="up" delayMs={160}>
               {language === 'so' 
                 ? 'Horseedka siyaasadda jiilka cusub'
                 : 'Pioneers of the new generation politics'
               }
-            </p>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -66,7 +67,7 @@ const AboutContent = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-              <div>
+              <ScrollReveal as="div" variant="right">
                 <h2 className="font-outfit text-3xl font-bold text-secondary mb-6">
                   {language === 'so' ? 'Ku Saabsan Xisbiga' : 'About the Party'}
                 </h2>
@@ -82,8 +83,8 @@ const AboutContent = () => {
                     : 'We are the best party supporting peace, development, and unity in Somalia. We believe that youth are the pioneers of the future.'
                   }
                 </p>
-              </div>
-              <div className="bg-gradient-to-br from-primary/20 to-secondary/20 p-8 rounded-2xl">
+              </ScrollReveal>
+              <ScrollReveal as="div" className="bg-gradient-to-br from-primary/20 to-secondary/20 p-8 rounded-2xl" variant="left" delayMs={80}>
                 <div className="grid grid-cols-2 gap-6 text-center">
                   <div>
                     <div className="text-4xl font-bold text-primary mb-2">50K+</div>
@@ -110,11 +111,11 @@ const AboutContent = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </ScrollReveal>
             </div>
 
             {/* Pillars */}
-            <div className="text-center mb-12">
+            <ScrollReveal as="div" className="text-center mb-12" variant="up">
               <h2 className="font-outfit text-3xl font-bold text-secondary mb-4">
                 {language === 'so' ? 'Tiirarka Asaasiga' : 'Core Pillars'}
               </h2>
@@ -124,17 +125,17 @@ const AboutContent = () => {
                   : 'Our foundation is based on the following principles:'
                 }
               </p>
-            </div>
+            </ScrollReveal>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {pillars.map((pillar, index) => (
-                <div key={index} className="text-center p-6 rounded-xl bg-muted/30 hover:bg-muted/50 transition-colors">
+                <ScrollReveal key={index} as="div" className="text-center p-6 rounded-xl bg-muted/30 hover:bg-muted/50 transition-colors" variant="up" delayMs={index * 90}>
                   <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                     <pillar.icon className="w-8 h-8 text-primary" />
                   </div>
                   <h3 className="font-semibold text-xl mb-3">{pillar.title}</h3>
                   <p className="text-muted-foreground">{pillar.description}</p>
-                </div>
+                </ScrollReveal>
               ))}
             </div>
           </div>
@@ -146,7 +147,7 @@ const AboutContent = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="p-8 bg-white rounded-2xl shadow-lg">
+              <ScrollReveal as="div" className="p-8 bg-white rounded-2xl shadow-lg" variant="up">
                 <Target className="w-12 h-12 text-primary mb-4" />
                 <h3 className="font-outfit text-2xl font-bold text-secondary mb-4">
                   {language === 'so' ? 'Araggita' : 'Mission'}
@@ -157,8 +158,8 @@ const AboutContent = () => {
                     : 'To create a free, peaceful, and prosperous Somalia where youth can enjoy a good life.'
                   }
                 </p>
-              </div>
-              <div className="p-8 bg-white rounded-2xl shadow-lg">
+              </ScrollReveal>
+              <ScrollReveal as="div" className="p-8 bg-white rounded-2xl shadow-lg" variant="up" delayMs={90}>
                 <Star className="w-12 h-12 text-secondary mb-4" />
                 <h3 className="font-outfit text-2xl font-bold text-secondary mb-4">
                   {language === 'so' ? 'Arinta' : 'Vision'}
@@ -169,7 +170,7 @@ const AboutContent = () => {
                     : 'To become the most influential party in Somali society by 2030.'
                   }
                 </p>
-              </div>
+              </ScrollReveal>
             </div>
           </div>
         </div>

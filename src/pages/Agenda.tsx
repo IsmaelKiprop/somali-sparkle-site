@@ -4,6 +4,7 @@ import { Footer } from '@/components/Footer';
 import { SoomaalChat } from '@/components/SoomaalChat';
 import { useLanguage } from '@/hooks/useLanguage';
 import { Shield, Star } from 'lucide-react';
+import { ScrollReveal } from '@/components/ScrollReveal';
 
 import agendaJobs from '@/assets/agenda-jobs.jpg';
 import agendaHealth from '@/assets/agenda-health.jpg';
@@ -46,21 +47,21 @@ const AgendaContent = () => {
       <section className="py-24 bg-gradient-to-br from-primary/10 to-secondary/10">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="mb-8 inline-flex items-center gap-2 bg-primary/20 px-4 py-2 rounded-full">
+            <ScrollReveal as="div" className="mb-8 inline-flex items-center gap-2 bg-primary/20 px-4 py-2 rounded-full" variant="up">
               <Star className="w-5 h-5 text-primary" />
               <span className="text-primary font-semibold">
                 {language === 'so' ? 'Tiirarka Asaasiga' : 'Core Pillars'}
               </span>
-            </div>
-            <h1 className="font-outfit text-5xl md:text-6xl font-bold text-secondary mb-6">
+            </ScrollReveal>
+            <ScrollReveal as="h1" className="font-outfit text-5xl md:text-6xl font-bold text-secondary mb-6" variant="up" delayMs={80}>
               {language === 'so' ? 'Hiigsi Dhab ah' : 'Real Vision'}
-            </h1>
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+            </ScrollReveal>
+            <ScrollReveal as="p" className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto" variant="up" delayMs={140}>
               {language === 'so' 
                 ? 'Ma ballanqaadno oo kaliya. Waan xisaabinnaa.'
                 : 'We don\'t just promise. We deliver.'
               }
-            </p>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -71,7 +72,7 @@ const AgendaContent = () => {
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {agendaItems.map((item, index) => (
-                <div key={index} className="group bg-card rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <ScrollReveal key={index} as="div" className="group bg-card rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2" variant="up" delayMs={index * 90}>
                   <div className="h-48 overflow-hidden">
                     <img 
                       src={item.image} 
@@ -94,7 +95,7 @@ const AgendaContent = () => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </ScrollReveal>
               ))}
             </div>
           </div>
@@ -105,12 +106,12 @@ const AgendaContent = () => {
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="font-outfit text-3xl font-bold text-secondary mb-12">
+            <ScrollReveal as="h2" className="font-outfit text-3xl font-bold text-secondary mb-12" variant="up">
               {language === 'so' ? 'Qorshaha Horumarinta' : 'Development Plans'}
-            </h2>
+            </ScrollReveal>
             
             <div className="space-y-8 text-left">
-              <div className="bg-white p-6 rounded-xl shadow-md">
+              <ScrollReveal as="div" className="bg-white p-6 rounded-xl shadow-md" variant="up">
                 <h3 className="font-semibold text-xl mb-3 text-primary">
                   {language === 'so' ? 'Sannadkii 1-2: Aasaarinta' : 'Years 1-2: Foundation'}
                 </h3>
@@ -120,9 +121,9 @@ const AgendaContent = () => {
                     : 'Establish education, health, and job centers in major cities.'
                   }
                 </p>
-              </div>
+              </ScrollReveal>
               
-              <div className="bg-white p-6 rounded-xl shadow-md">
+              <ScrollReveal as="div" className="bg-white p-6 rounded-xl shadow-md" variant="up" delayMs={90}>
                 <h3 className="font-semibold text-xl mb-3 text-secondary">
                   {language === 'so' ? 'Sannadkii 3-4: Kobcinta' : 'Years 3-4: Growth'}
                 </h3>
@@ -132,9 +133,9 @@ const AgendaContent = () => {
                     : 'Expand projects across all regions and build community centers.'
                   }
                 </p>
-              </div>
+              </ScrollReveal>
               
-              <div className="bg-white p-6 rounded-xl shadow-md">
+              <ScrollReveal as="div" className="bg-white p-6 rounded-xl shadow-md" variant="up" delayMs={180}>
                 <h3 className="font-semibold text-xl mb-3 text-accent">
                   {language === 'so' ? 'Sannadkii 5+: Xoraynta' : 'Years 5+: Independence'}
                 </h3>
@@ -144,7 +145,7 @@ const AgendaContent = () => {
                     : 'Achieve economic independence in energy and food sectors.'
                   }
                 </p>
-              </div>
+              </ScrollReveal>
             </div>
           </div>
         </div>
@@ -154,24 +155,26 @@ const AgendaContent = () => {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="bg-gradient-to-r from-primary/10 to-secondary/10 p-12 rounded-2xl">
-              <h2 className="font-outfit text-3xl font-bold text-secondary mb-6">
+            <ScrollReveal as="div" className="bg-gradient-to-r from-primary/10 to-secondary/10 p-12 rounded-2xl" variant="up">
+              <ScrollReveal as="h2" className="font-outfit text-3xl font-bold text-secondary mb-6" variant="up">
                 {language === 'so' ? 'Ku Biir Tallaabada' : 'Join the Movement'}
-              </h2>
-              <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+              </ScrollReveal>
+              <ScrollReveal as="p" className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto" variant="up" delayMs={80}>
                 {language === 'so' 
                   ? 'Waxaan ka codsanayaa dhalinyarada Soomaaliyeed inay noqdaan qayb ka mid ah isbedelka aan rabno inay ka dhaco dalka.'
                   : 'We call on Somali youth to be part of the change we want to see in our country.'
                 }
-              </p>
-              <a 
-                href="/register"
-                className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-8 py-4 rounded-xl font-semibold text-lg hover:bg-primary/90 transition-all duration-300 hover:-translate-y-1"
-              >
-                {language === 'so' ? 'Isdiiwaangeli Hadda' : 'Register Now'}
-                <Star className="w-5 h-5" />
-              </a>
-            </div>
+              </ScrollReveal>
+              <ScrollReveal as="div" variant="up" delayMs={140}>
+                <a 
+                  href="/register"
+                  className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-8 py-4 rounded-xl font-semibold text-lg hover:bg-primary/90 transition-all duration-300 hover:-translate-y-1"
+                >
+                  {language === 'so' ? 'Isdiiwaangeli Hadda' : 'Register Now'}
+                  <Star className="w-5 h-5" />
+                </a>
+              </ScrollReveal>
+            </ScrollReveal>
           </div>
         </div>
       </section>

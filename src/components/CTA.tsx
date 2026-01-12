@@ -1,6 +1,7 @@
 import { ArrowRight, Star, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/hooks/useLanguage';
+import { ScrollReveal } from '@/components/ScrollReveal';
 
 export function CTA() {
   const { t } = useLanguage();
@@ -24,31 +25,33 @@ export function CTA() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur px-5 py-2.5 rounded-full mb-8">
+          <ScrollReveal as="div" className="inline-flex items-center gap-2 bg-white/10 backdrop-blur px-5 py-2.5 rounded-full mb-8" variant="up">
             <span className="w-2 h-2 bg-accent rounded-full animate-pulse-glow" />
             <span className="text-primary-foreground/90 text-sm font-medium">
               {t('ctaSubtitle')}
             </span>
-          </div>
+          </ScrollReveal>
 
           {/* Title */}
-          <h2 className="font-outfit text-4xl md:text-6xl lg:text-7xl font-extrabold text-primary-foreground mb-8 leading-tight">
+          <ScrollReveal as="h2" className="font-outfit text-4xl md:text-6xl lg:text-7xl font-extrabold text-primary-foreground mb-8 leading-tight" variant="up" delayMs={80}>
             {t('ctaTitle')}
-          </h2>
+          </ScrollReveal>
 
           {/* CTA Button */}
-          <Link
-            to="/register"
-            className="inline-flex items-center gap-3 bg-card text-secondary font-bold px-10 py-5 rounded-2xl text-lg hover:bg-card/90 transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-xl group"
-          >
-            {t('ctaButton')}
-            <ArrowRight className="w-6 h-6 transition-transform group-hover:translate-x-1" />
-          </Link>
+          <ScrollReveal as="div" variant="up" delayMs={140}>
+            <Link
+              to="/register"
+              className="inline-flex items-center gap-3 bg-card text-secondary font-bold px-10 py-5 rounded-2xl text-lg hover:bg-card/90 transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-xl group"
+            >
+              {t('ctaButton')}
+              <ArrowRight className="w-6 h-6 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </ScrollReveal>
 
           {/* Bottom Text */}
-          <p className="mt-8 text-primary-foreground/60 text-sm">
+          <ScrollReveal as="p" className="mt-8 text-primary-foreground/60 text-sm" variant="fade" delayMs={200}>
             {t('footerTagline')} — SYP 2026
-          </p>
+          </ScrollReveal>
         </div>
       </div>
     </section>

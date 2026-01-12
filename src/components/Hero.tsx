@@ -1,6 +1,7 @@
 import { Star, ArrowRight, Eye } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { useEffect, useState, useRef } from 'react';
+import { ScrollReveal } from '@/components/ScrollReveal';
 
 function AnimatedCounter({ end, suffix = '', duration = 2000 }: { end: number; suffix?: string; duration?: number }) {
   const [count, setCount] = useState(0);
@@ -71,28 +72,28 @@ export function Hero() {
           {/* Left Content */}
           <div className="space-y-8">
             {/* Tag */}
-            <div className="inline-flex items-center gap-2 bg-card/80 backdrop-blur px-4 py-2 rounded-full animate-fade-up">
+            <ScrollReveal as="div" className="inline-flex items-center gap-2 bg-card/80 backdrop-blur px-4 py-2 rounded-full" variant="up">
               <span className="w-2 h-2 rounded-full bg-accent animate-pulse-glow" />
               <span className="text-sm font-medium text-muted-foreground">{t('heroTag')}</span>
-            </div>
+            </ScrollReveal>
 
             {/* Headlines */}
-            <div className="space-y-2 animate-fade-up animation-delay-200">
+            <ScrollReveal as="div" className="space-y-2" variant="up" delayMs={80}>
               <h1 className="font-outfit text-5xl md:text-6xl lg:text-7xl font-extrabold text-secondary leading-tight">
                 {t('heroTitle1')}
               </h1>
               <h1 className="font-outfit text-5xl md:text-6xl lg:text-7xl font-extrabold text-primary leading-tight">
                 {t('heroTitle2')}
               </h1>
-            </div>
+            </ScrollReveal>
 
             {/* Subtitle */}
-            <p className="text-lg md:text-xl text-muted-foreground max-w-xl animate-fade-up animation-delay-400">
+            <ScrollReveal as="p" className="text-lg md:text-xl text-muted-foreground max-w-xl" variant="up" delayMs={140}>
               {t('heroSubtitle')}
-            </p>
+            </ScrollReveal>
 
             {/* CTAs */}
-            <div className="flex flex-wrap gap-4 animate-fade-up animation-delay-600">
+            <ScrollReveal as="div" className="flex flex-wrap gap-4" variant="up" delayMs={200}>
               <a href="#join" className="btn-primary-hero inline-flex items-center gap-2 group">
                 {t('heroCta1')}
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
@@ -101,10 +102,10 @@ export function Hero() {
                 <Eye className="w-5 h-5" />
                 {t('heroCta2')}
               </a>
-            </div>
+            </ScrollReveal>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-6 pt-8 border-t border-border animate-fade-up animation-delay-600">
+            <ScrollReveal as="div" className="grid grid-cols-3 gap-6 pt-8 border-t border-border" variant="up" delayMs={260}>
               <div>
                 <div className="text-3xl md:text-4xl font-bold text-secondary">
                   <AnimatedCounter end={10} suffix="K+" />
@@ -123,11 +124,11 @@ export function Hero() {
                 </div>
                 <p className="text-sm text-muted-foreground mt-1">{t('statTransparency')}</p>
               </div>
-            </div>
+            </ScrollReveal>
           </div>
 
           {/* Right Content - Hero Image Card */}
-          <div className="relative flex justify-center lg:justify-end animate-scale-in animation-delay-400">
+          <ScrollReveal as="div" className="relative flex justify-center lg:justify-end" variant="scale" delayMs={120}>
             <div className="relative w-full max-w-md">
               {/* Glassmorphism Card */}
               <div className="glass-card rounded-3xl p-6 space-y-4">
@@ -166,7 +167,7 @@ export function Hero() {
               <div className="absolute -top-4 -right-4 w-24 h-24 bg-accent/20 rounded-full blur-2xl" />
               <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-primary/20 rounded-full blur-2xl" />
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

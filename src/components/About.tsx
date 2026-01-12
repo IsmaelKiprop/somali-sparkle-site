@@ -1,6 +1,7 @@
 import { Flag, Users, Target, Shield } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 import somaliaFlag from '@/assets/somalia-flag-hero.png';
+import { ScrollReveal } from '@/components/ScrollReveal';
 
 const pillars = [
   {
@@ -34,7 +35,7 @@ export function About() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
           {/* Image Side */}
-          <div className="relative order-2 lg:order-1">
+          <ScrollReveal as="div" className="relative order-2 lg:order-1" variant="right">
             <div className="relative rounded-3xl overflow-hidden shadow-2xl">
               <img 
                 src={somaliaFlag} 
@@ -47,10 +48,10 @@ export function About() {
             <div className="absolute -bottom-4 -right-4 bg-accent text-accent-foreground px-6 py-3 rounded-xl shadow-lg font-bold">
               SYP 2026
             </div>
-          </div>
+          </ScrollReveal>
           
           {/* Content Side */}
-          <div className="order-1 lg:order-2 space-y-6">
+          <ScrollReveal as="div" className="order-1 lg:order-2 space-y-6" variant="left" delayMs={80}>
             <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">
               {t('aboutTag')}
             </span>
@@ -74,16 +75,18 @@ export function About() {
                 <p className="text-sm text-muted-foreground">United Nation</p>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
 
         {/* Pillars Grid */}
         <div className="grid md:grid-cols-3 gap-6">
           {pillars.map((pillar, index) => (
-            <div
+            <ScrollReveal
               key={pillar.titleKey}
+              as="div"
               className="card-elevated p-8 group"
-              style={{ animationDelay: `${index * 100}ms` }}
+              variant="up"
+              delayMs={index * 90}
             >
               <div 
                 className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110 ${
@@ -104,7 +107,7 @@ export function About() {
               <p className="text-muted-foreground">
                 {t(pillar.descKey)}
               </p>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>
