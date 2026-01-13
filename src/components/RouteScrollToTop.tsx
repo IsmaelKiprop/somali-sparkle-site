@@ -29,7 +29,19 @@ const RouteScrollToTop = () => {
   useEffect(() => {
     // Always scroll to top when the app loads to ensure hero section is visible
     const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches ?? false;
-    window.scrollTo({ top: 0, left: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+    
+    // Force scroll to top immediately and again after a short delay
+    const scrollToTop = () => {
+      try {
+        window.scrollTo({ top: 0, left: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+      } catch (error) {
+        window.scrollTo(0, 0);
+      }
+    };
+    
+    scrollToTop(); // Immediate scroll
+    setTimeout(scrollToTop, 100); // Second attempt after 100ms
+    setTimeout(scrollToTop, 500); // Third attempt after 500ms
   }, []);
 
   return null;

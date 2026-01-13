@@ -1,8 +1,41 @@
-import { Star, ArrowRight, Eye } from 'lucide-react';
+import { Star, ArrowRight, Eye, ChevronUp } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { useEffect, useState, useRef } from 'react';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { Parallax } from '@/components/Parallax';
+
+function TypingAnimation({ text, className = '', delay = 0 }: { text: string; className?: string; delay?: number }) {
+  const [displayText, setDisplayText] = useState('');
+  const [isTyping, setIsTyping] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsTyping(true);
+      let currentIndex = 0;
+      
+      const typingInterval = setInterval(() => {
+        if (currentIndex <= text.length) {
+          setDisplayText(text.slice(0, currentIndex));
+          currentIndex++;
+        } else {
+          clearInterval(typingInterval);
+          setIsTyping(false);
+        }
+      }, 100);
+
+      return () => clearInterval(typingInterval);
+    }, delay);
+
+    return () => clearTimeout(timer);
+  }, [text, delay]);
+
+  return (
+    <span className={className}>
+      {displayText}
+      {isTyping && <span className="animate-pulse">|</span>}
+    </span>
+  );
+}
 
 function AnimatedCounter({ end, suffix = '', duration = 2000 }: { end: number; suffix?: string; duration?: number }) {
   const [count, setCount] = useState(0);
@@ -152,10 +185,10 @@ export function Hero() {
             {/* Headlines */}
             <ScrollReveal as="div" className="space-y-2" variant="up" delayMs={80}>
               <h1 className="font-outfit text-5xl md:text-6xl lg:text-7xl font-extrabold text-secondary leading-tight">
-                {t('heroTitle1')}
+                <TypingAnimation text={t('heroTitle1')} delay={500} />
               </h1>
               <h1 className="font-outfit text-5xl md:text-6xl lg:text-7xl font-extrabold text-primary leading-tight">
-                {t('heroTitle2')}
+                <TypingAnimation text={t('heroTitle2')} delay={1500} />
               </h1>
             </ScrollReveal>
 
