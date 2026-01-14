@@ -39,7 +39,7 @@ export function Leadership() {
             <ScrollReveal as="div" className="relative" variant="right">
               <div className="relative aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl">
                 <img
-                  src="https://somaliyouthparty.com/wp-content/uploads/2025/12/cropped-20251120_134403.png"
+                  src="/favicon.png"
                   alt="Nasa Ige"
                   className="w-full h-full object-cover object-top"
                 />

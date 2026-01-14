@@ -23,10 +23,17 @@ export function Footer() {
   return (
     <footer className="relative bg-secondary text-secondary-foreground overflow-hidden">
       {/* Somali Flag Background */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-15"
-        style={{ backgroundImage: 'url(/somalia-flag-hero.png)' }}
-      />
+      <div className="absolute inset-0 overflow-hidden">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-20"
+        >
+          <source src="/flag.mp4" type="video/mp4" />
+        </video>
+      </div>
       
       <div className="container mx-auto px-4 py-16 relative z-10">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">

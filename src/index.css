@@ -449,6 +449,73 @@
     animation: fade-in 0.5s ease-out forwards;
   }
 
+  /* Wave animation for flag background */
+  @keyframes wave {
+    0% {
+      transform: translateX(0) translateY(0);
+    }
+    25% {
+      transform: translateX(-25px) translateY(-10px);
+    }
+    50% {
+      transform: translateX(0) translateY(0);
+    }
+    75% {
+      transform: translateX(25px) translateY(-5px);
+    }
+    100% {
+      transform: translateX(0) translateY(0);
+    }
+  }
+
+  @keyframes wave-enhanced {
+    0% {
+      transform: translateX(0) translateY(0) rotate(0deg);
+    }
+    20% {
+      transform: translateX(-30px) translateY(-15px) rotate(2deg);
+    }
+    40% {
+      transform: translateX(-20px) translateY(-8px) rotate(-1deg);
+    }
+    60% {
+      transform: translateX(20px) translateY(-12px) rotate(1deg);
+    }
+    80% {
+      transform: translateX(30px) translateY(-6px) rotate(-2deg);
+    }
+    100% {
+      transform: translateX(0) translateY(0) rotate(0deg);
+    }
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(0px) translateX(0px);
+    }
+    33% {
+      transform: translateY(-20px) translateX(10px);
+    }
+    66% {
+      transform: translateY(10px) translateX(-10px);
+    }
+    100% {
+      transform: translateY(0px) translateX(0px);
+    }
+  }
+
+  .animate-wave {
+    animation: wave 8s ease-in-out infinite;
+  }
+
+  .animate-wave-enhanced {
+    animation: wave-enhanced 6s ease-in-out infinite;
+  }
+
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .page-transition {
       animation: none;

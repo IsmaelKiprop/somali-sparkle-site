@@ -124,11 +124,26 @@ export function Hero() {
       <div className="absolute inset-0 hero-stage-pattern opacity-30" />
       <div className="absolute inset-0 hero-stage-vignette" />
       
-      {/* Somali Flag Background */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
-        style={{ backgroundImage: 'url(/somalia-flag-hero.png)' }}
-      />
+      {/* Animated Somali Flag Background */}
+      <div className="absolute inset-0 overflow-hidden">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-30"
+        >
+          <source src="/flag.mp4" type="video/mp4" />
+        </video>
+        {/* Campaign image overlay integration */}
+        <div className="absolute inset-x-0 top-8 md:top-12 flex md:items-start md:justify-start items-center justify-center opacity-20">
+          <img 
+            src="/campain image.png" 
+            alt="SYP Campaign" 
+            className="w-60 h-60 md:w-72 md:h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96 object-contain animate-float md:ml-8 md:md:ml-12"
+          />
+        </div>
+      </div>
       
       {/* Floating Stars */}
       <Parallax className="absolute top-32 right-[15%] floating-star opacity-20" strengthPx={14}>

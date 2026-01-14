@@ -41,12 +41,14 @@ const AboutContent = () => {
             </ScrollReveal>
             <ScrollReveal as="div" className="mb-8 flex justify-center" variant="scale" delayMs={60}>
               <div className="w-28 h-28 md:w-36 md:h-36 rounded-3xl bg-card/70 backdrop-blur border border-border/60 shadow-lg flex items-center justify-center p-4">
-                <img
-                  src="/favicon.png"
-                  alt="SYP"
-                  className="w-full h-full object-contain"
-                  loading="lazy"
-                />
+                <div>
+                  <img
+                    src="/campain image.png"
+                    alt="SYP Campaign"
+                    className="w-full h-full object-contain"
+                    loading="lazy"
+                  />
+                </div>
               </div>
             </ScrollReveal>
             <ScrollReveal as="h1" className="font-outfit text-5xl md:text-6xl font-bold text-secondary mb-6" variant="up" delayMs={100}>
@@ -68,6 +70,15 @@ const AboutContent = () => {
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
               <ScrollReveal as="div" variant="right">
+                <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
+                  <img
+                    src="/campain image.png"
+                    alt="SYP Campaign"
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
+              </ScrollReveal>
+              <ScrollReveal as="div" className="space-y-6" variant="left" delayMs={80}>
                 <h2 className="font-outfit text-3xl font-bold text-secondary mb-6">
                   {language === 'so' ? 'Ku Saabsan Xisbiga' : 'About the Party'}
                 </h2>
