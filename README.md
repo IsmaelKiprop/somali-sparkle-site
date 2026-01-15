@@ -1,73 +1,144 @@
-# Welcome to your Lovable project
+# Somali Youth Party (SYP) - Xisbiga Dhallinyarada Soomaaliyeed
 
-## Project info
+**Hal Qaran. Hal Mustaqbal.**
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+A modern political party website for the Somali Youth Party, built to engage and mobilize Somalia's next generation of leaders.
 
-## How can I edit this code?
+## 🌐 Live Demo
 
-There are several ways of editing your application.
+**URL**: https://somali-sparkle-site.vercel.app/
 
-**Use Lovable**
+## 📋 Project Overview
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+The Somali Youth Party (SYP) website is a comprehensive digital platform designed to:
+- Present the party's vision and mission
+- Showcase leadership team members
+- Manage events and campaigns
+- Enable member registration
+- Provide information about party agenda and initiatives
+- Engage with supporters through integrated chatbot features
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🚀 Key Features
 
-**Use your preferred IDE**
+- **Multi-page Navigation**: Home, About, Agenda, Events, Leadership, Registration
+- **Admin Dashboard**: CMS-like functionality for content management
+- **Event Management**: Campaign and event organization
+- **Member Registration**: User onboarding and data collection
+- **Integrated Chatbot**: AI-powered assistance for visitors
+- **Responsive Design**: Optimized for all devices
+- **Smooth Animations**: Modern UI transitions and interactions
+- **SEO Optimized**: Meta tags and structured data for search engines
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🛠️ Technology Stack
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+This project is built with modern web technologies:
 
-Follow these steps:
+- **Frontend Framework**: React 18 with TypeScript
+- **Build Tool**: Vite
+- **UI Components**: shadcn/ui with Radix UI primitives
+- **Styling**: Tailwind CSS with custom animations
+- **Routing**: React Router DOM
+- **State Management**: React Query (TanStack Query)
+- **Forms**: React Hook Form with Zod validation
+- **Database**: Supabase for backend services
+- **Icons**: Lucide React
+- **Charts**: Recharts for data visualization
+- **Markdown**: React Markdown with GitHub Flavored Markdown
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
+## 📁 Project Structure
+
+```
+src/
+├── components/          # Reusable UI components
+├── pages/              # Page components
+│   ├── Index.tsx       # Home page
+│   ├── AboutPageFull.tsx
+│   ├── Agenda.tsx
+│   ├── Events.tsx
+│   ├── LeadershipTeam.tsx
+│   ├── Register.tsx
+│   └── Candidate.tsx
+├── hooks/              # Custom React hooks
+├── lib/                # Utility functions
+├── integrations/       # External service integrations
+└── assets/             # Static assets
+```
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js (v18 or higher)
+- npm or yarn package manager
+
+### Installation
+
+```bash
+# Clone the repository
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Navigate to the project directory
+cd somali-sparkle-site
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The application will be available at `http://localhost:5173`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Available Scripts
 
-**Use GitHub Codespaces**
+- `npm run dev` - Start development server with hot reload
+- `npm run build` - Build for production
+- `npm run build:dev` - Build for development mode
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 🌍 Deployment
 
-## What technologies are used for this project?
+### Production Deployment
 
-This project is built with:
+The project is currently deployed on Vercel:
+- **Live URL**: https://somali-sparkle-site.vercel.app/
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Environment Variables
 
-## How can I deploy this project?
+Create a `.env` file in the root directory with the following variables:
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+```env
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
 
-## Can I connect a custom domain to my Lovable project?
+### Custom Domain Setup
 
-Yes, you can!
+To connect a custom domain:
+1. Navigate to your hosting provider's domain settings
+2. Add DNS records pointing to the deployment
+3. Configure SSL certificates
+4. Update environment variables if needed
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 🤝 Contributing
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is proprietary and belongs to the Somali Youth Party (SYP).
+
+## 📞 Contact
+
+- **Website**: https://somali-sparkle-site.vercel.app/
+- **Email**: info@somaliparty.so
+- **Social Media**: @SomaliYouthParty
+
+---
+
+**Hal Qaran. Hal Mustaqbal.**
